@@ -1,0 +1,15 @@
+header{
+    background-color: darkslategrey;
+    color: whitesmoke;
+    text-align: center;
+}
+
+.float-left {
+    float: left;
+    margin-right: 25px;
+}
+
+.float-right {
+    float: right;
+    margin-left: 25px;
+}

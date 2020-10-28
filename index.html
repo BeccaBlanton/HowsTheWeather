@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        />
+        <link
+          rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+          crossorigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./docs/style.css" />
+    <title>HowsTheWeather</title>
+</head>
+<body>
+    <!--top bar header-->
+    <div class="container-fluid ">
+        <Header> 
+            <h1>How's The Weather?</h1>
+        </Header>
+    </div>
+    <div class="container-fluid">
+        <!--Side bar for Searching and holding previous searches-->
+        <div class="row">
+          <div class="col-2 card">
+            <h2>Search for a City:</h2>>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            <div class="card" style="width: 18rem;">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Sacramento</li>
+                  <li class="list-group-item">Los Angeles</li>
+                  <li class="list-group-item">New York</li>
+                </ul>
+              </div>
+          </div>
+          <div class="col-10 card">
+              <!--main weather section. Will pop up with weather information on city searched-->
+            <main>
+            <h1>Sacramento, CA (10/27/2020)</h1>
+            <p>
+                Weather Things:
+                <br>
+                Its so cold
+                <br> 
+                and so humid
+            </p>
+            </main>
+        <!--box for 5 day forecast for current city selected-->
+            <div class="row">
+                <div class="col card">
+                <h2>Five Day Forecast</h2>
+                <div class="row">
+                <div class="col-2">
+                    <div class="card">
+                        <div class="card-body">
+                          <h3>Day 1</h3>
+                          <li>Temp:</li>
+                          <li>sun Icon</li>
+                          <li>Humidity</li>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-2">
+                    <div class="card">
+                        <div class="card-body">
+                          <h3>Day 1</h3>
+                          <li>Temp:</li>
+                          <li>sun Icon</li>
+                          <li>Humidity</li>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-2">
+                    <div class="card">
+                        <div class="card-body">
+                          <h3>Day 1</h3>
+                          <li>Temp:</li>
+                          <li>sun Icon</li>
+                          <li>Humidity</li>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-2">
+                    <div class="card">
+                        <div class="card-body">
+                          <h3>Day 1</h3>
+                          <li>Temp:</li>
+                          <li>sun Icon</li>
+                          <li>Humidity</li>
+                        </div>
+                      </div>
+                </div>
+                <div class="col-2">
+                    <div class="card">
+                        <div class="card-body">
+                          <h3>Day 1</h3>
+                          <li>Temp:</li>
+                          <li>sun Icon</li>
+                          <li>Humidity</li>
+                        </div>
+                      </div>
+                </div>
+            </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!--make HTML with bootstrap with container and columns to store 
+Headers
+Side search Bar
+Main Weather Box 
+5 -day forecast box with 5 cards with weather InputDeviceInfo-->
