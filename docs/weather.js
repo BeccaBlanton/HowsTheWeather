@@ -28,9 +28,14 @@ $("#searchBtn").on("click", function(event){
     url: queryURL,
     method: "GET"
   }).then(function(response) {
+    var cityHeader = $(`<h1>${response.city.name + " " + response.list[0].dt_txt}</h1>`)
+    var temperature = $(`<h3>${"Temperature: " + response.list[0].main.temp}</h3>`)
+    var humidity = $(`<h3>${"Humidity: " + response.list[0].main.humidity}</h3>`)
+    var windSpeed = $(`<h3>${"Wind Speed: " + response.list[0].wind.speed}</h3>`)
+    var uvIndex = $(`<h3>${"UV Index: " + response.list[0].weather.icon}</h3>`)
+    $('#mainWeatherInfo').append(cityHeader, temperature, humidity, windSpeed, uvIndex)
     console.log(queryURL)
     console.log(response)
-    document.querySelector("#mainWeatherInfo").append(JSON.stringify(response))
 })
 
 });
