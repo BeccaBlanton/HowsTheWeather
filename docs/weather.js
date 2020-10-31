@@ -20,26 +20,54 @@ THEN I am presented with the last searched city forecast*/
 //initial cities in search bar
 var cities = ['Los Angeles', 'New York', 'San Francisco', 'Chicago'];
 
-$("#searchBtn").on("click", function(event){
-  event.preventDefault();
-  var city = $("#search-city").val()
+function displayWeatherInfo(){
+  var city = "Sacramento"
   var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=5feeeec9e5f2ebf79547fc8775da3160";
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    var cityHeader = $(`<h1>${response.city.name + " " + response.list[0].dt_txt}</h1>`)
-    var temperature = $(`<h3>${"Temperature: " + response.list[0].main.temp}</h3>`)
-    var humidity = $(`<h3>${"Humidity: " + response.list[0].main.humidity}</h3>`)
-    var windSpeed = $(`<h3>${"Wind Speed: " + response.list[0].wind.speed}</h3>`)
-    var uvIndex = $(`<h3>${"UV Index: " + response.list[0].weather.icon}</h3>`)
-    $('#mainWeatherInfo').append(cityHeader, temperature, humidity, windSpeed, uvIndex)
+    var tempF= Math.floor(((response.list[0].main.temp)-273.15) * 1.8 + 32)
+    var cityHeader = $(`<h1>${response.city.name} + <img>${response.list[0].weather.icon}</img></h1>`)
+    var temperature = $(`<h3>${"Temperature: " + tempF + "°F"}</h3>`)
+    var humidity = $(`<h3>${"Humidity: " + response.list[0].main.humidity + "%"}</h3>`)
+    var windSpeed = $(`<h3>${"Wind Speed: " + response.list[0].wind.speed + " MPH"}</h3>`)
+    //var uvIndex = $(`<h3>${"UV Index: " + response.list.speed}</h3>`)
+    $('#mainWeatherInfo').append(cityHeader, temperature, humidity, windSpeed)
     console.log(queryURL)
     console.log(response)
 })
+}
 
+function renderSearchHistory(){
+$("#search-view").empty();
+for(var i=0; i <cities.length; i++){
+var pastSearch = $("<li>");
+pastSearch.addClass("city")
+pastSearch.attr("data-name", cities[i]);
+pastSearch.text(cities[i]);
+$("#search-view").prepend(pastSearch)
+}
+}
+
+$("#searchBtn").on("click", function(event){
+  event.preventDefault();
+  var city = $("#search-city").val()
+  cities.push(city);
+  var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=5feeeec9e5f2ebf79547fc8775da3160";
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    var tempF= Math.floor(((response.list[0].main.temp)-273.15) * 1.8 + 32)
+    var cityHeader = $(`<h1>${response.city.name} + <img>${response.list[0].weather.icon}</img></h1>`)
+    var temperature = $(`<h3>${"Temperature: " + tempF + "°F"}</h3>`)
+    var humidity = $(`<h3>${"Humidity: " + response.list[0].main.humidity + "%"}</h3>`)
+    var windSpeed = $(`<h3>${"Wind Speed: " + response.list[0].wind.speed + " MPH"}</h3>`)
+    //var uvIndex = $(`<h3>${"UV Index: " + response.list.speed}</h3>`)
+    $('#mainWeatherInfo').prepend(cityHeader, temperature, humidity, windSpeed)
+    console.log(queryURL)
+    console.log(response)
+  renderSearchHistory();
 });
-
-
-
-
+})
