@@ -34,20 +34,17 @@
           <div class="col-2 card">
             <h2>Search for a City:</h2>>
             <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <input id="search-city" class="form-control mr-sm-2" type="search" placeholder="City" aria-label="Search">
+                <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
               </form>
             <div class="card" style="width: 18rem;">
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Sacramento</li>
-                  <li class="list-group-item">Los Angeles</li>
-                  <li class="list-group-item">New York</li>
+                <ul id= "search-view" class="list-group list-group-flush">
                 </ul>
               </div>
           </div>
           <div class="col-10 card">
               <!--main weather section. Will pop up with weather information on city searched-->
-            <main>
+            <main id="mainWeatherInfo">
             <h1>Sacramento, CA (10/27/2020)</h1>
             <p>
                 Weather Things:
@@ -118,6 +115,8 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="docs/weather.js"></script>
 </body>
 </html>
 

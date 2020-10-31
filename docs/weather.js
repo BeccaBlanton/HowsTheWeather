@@ -17,54 +17,24 @@ THEN I am presented with the last searched city forecast*/
 //previous cities at buttons that link back to their dashbaord
 
 //once Searched Posts City and Date in Header
+//initial cities in search bar
+var cities = ['Los Angeles', 'New York', 'San Francisco', 'Chicago'];
 
-//below header Lists Cities city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-
-//UV index is color coded for favorable, moderate or severe
-
-
-
-//5 day forecast: displays date, icon representation of weather conditions, the temperature, and the humidity
-api.openweathermap.org/data/2.5/forecast/daily?q={city name}&cnt={cnt}&appid={API key}
-
- var fiveDayForecastURL = "api.openweathermap.org/data/2.5/forecast?q=" + city + apiKey
-
- var city = Rocklin
- 
- var apiKey = "&appid=5feeeec9e5f2ebf79547fc8775da3160"
-
- console.log(fiveDayForecaseURL)
- var date
- var icon= list.weather.icon
- var temperature = list.main.temp
- var humidity = list.main.humidity
-
-
-
-
-/* movie ajax example
-function movieSearch(movie){
-var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
-
-$.ajax({
-url: queryURL,
-method: "GET"
-}).then(function(response) {
-var row = $("<tr>")
-var title = $("<td>"+ response.Title +"</td>")
-var year = $("<td>"+ response.Year +"</td>")
-var actors = $("<td>"+ response.Actors +"</td>")
-row.append(title,year, actors)
-$('tbody').append(row)
+$("#searchBtn").on("click", function(event){
+  event.preventDefault();
+  var city = $("#search-city").val()
+  var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=5feeeec9e5f2ebf79547fc8775da3160";
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    console.log(queryURL)
+    console.log(response)
+    document.querySelector("#mainWeatherInfo").append(JSON.stringify(response))
 })
-  }
 
-//can create Arrays to make even faster
-movies.forEach(function(movie){
-movieSearch(movie)
-})*/
+});
 
-//saves previous in local storage for user to come back to find previous searches
 
 
 
