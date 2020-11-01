@@ -1,5 +1,5 @@
 header{
-    background-color: darkslategrey;
+    background-color: teal;
     color: whitesmoke;
     text-align: center;
 }
@@ -15,4 +15,5 @@ header{
 }
 .card-body {
     background-color: turquoise;
+    border-radius: 15%;
 }
