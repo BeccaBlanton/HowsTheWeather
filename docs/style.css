@@ -13,3 +13,6 @@ header{
     float: right;
     margin-left: 25px;
 }
+.card-body {
+    background-color: turquoise;
+}
