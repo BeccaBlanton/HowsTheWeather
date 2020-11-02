@@ -28,6 +28,6 @@
 
 ## Website Example and Link
 
-[Go to Live HowsTheWeather Page]()
+[Go to Live HowsTheWeather Page](https://beccablanton.github.io/HowsTheWeather/)
 
 ![Website snapshot](docs/howstheweatherwebsite.png)
