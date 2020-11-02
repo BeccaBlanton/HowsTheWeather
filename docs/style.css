@@ -1,11 +1,20 @@
 body {
-    background-color:lightgray;
+    background-color:#F7F9FB;
+    color: #F7F9FB;
+    background-image: URL(peyman-farmani-UclyYWTFK7w-unsplash.jpg);
 }
 
 header{
-    background-color: teal;
-    color: whitesmoke;
+    background-color:#8FC1E3;
+    padding: 1rem;
+    border-width: 1rem;
+    border-color:#31708E;
+    border-style: inset;
+    margin: 2rem;
+    color: #F7F9FB;
     text-align: center;
+    font-style: unset;
+
 }
 
 .float-left {
@@ -18,11 +27,23 @@ header{
     margin-left: 25px;
 }
 .card {
-    background-color: lightgray;
+    background-color: #31708E;
+    border:none;
+    margin: 10px 0px;
 }
 .card-body {
-    background-color: turquoise;
-    border-radius: 15%;
+    background-color: #85C1E3;
+    color: #31708E;
+    border-radius: 5%;
+}
+
+ul {
+    margin-top: 10px;
+    background-color: #8FC1E3; 
+    display: table;
+    color: #31708E;
+    
+
 }
 
 .favorable {
@@ -30,6 +51,7 @@ header{
     padding:5px;font-size:20px;
     background-color: green;
     border-radius: 10%;
+    color: #19181A;
 }
 
 .moderate {
@@ -37,7 +59,8 @@ header{
     padding:5px;font-size:20px;
     background-color: yellow;
     border-radius: 10%;
-    text-align: left;
+    color: #19181A;
+
 }
 
 .severe {
@@ -45,4 +68,11 @@ header{
     padding:5px;font-size:20px;
     background-color: tomato;
     border-radius: 10%;
+    color: #19181A;
+}
+
+.fivedayrow {
+    border-top: #F7F9FB ;
+    border-top-style: double;
+
 }

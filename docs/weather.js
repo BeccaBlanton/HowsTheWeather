@@ -23,14 +23,14 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 var savedSearch = localStorage.getItem("searched city")
 //initial cities in search bar
-var cities = ['Los Angeles', 'New York', 'San Francisco', 'Chicago'];
+var cities = ['Austin','Orlando','Denver','Atlanta','Los Angeles', 'New York', 'San Francisco', 'Chicago'];
 //variables for current date and the date for next 5 days for the 5 day forecast
 var currentDate = moment().format('L');
-var oneDayOut = moment().add(1, 'days').calendar("L"); 
-var twoDaysOut = moment().add(2, 'days').calendar("L"); 
-var threeDaysOut = moment().add(3, 'days').calendar("L"); 
-var fourDaysOut = moment().add(4, 'days').calendar("L"); 
-var fiveDaysOut = moment().add(5, 'days').calendar("L"); 
+var oneDayOut = moment().add(1,'days').calendar("L"); 
+var twoDaysOut = moment().add(2,'days').calendar("L"); 
+var threeDaysOut = moment().add(3,'days').calendar("L"); 
+var fourDaysOut = moment().add(4,'days').calendar("L"); 
+var fiveDaysOut = moment().add(5,'days').calendar("L"); 
 
 
 //main function to load all Weather info into main part of page
@@ -52,7 +52,7 @@ function displayWeatherInfo(city){
     var tempF= Math.floor(((response.list[0].main.temp)-273.15) * 1.8 + 32)
     var weatherIcon = "http://openweathermap.org/img/w/"+ response.list[0].weather[0].icon +".png"
     console.log(weatherIcon)
-    var cityHeader = $(`<h1>${response.city.name +" " + currentDate}<img src=${weatherIcon}></h1>`)
+    var cityHeader = $(`<h1>${response.city.name +" (" + currentDate+") "}<img src=${weatherIcon}></h1>`)
     var temperature = $(`<h3>${"Temperature: " + tempF + "°F"}</h3>`)
     var humidity = $(`<h3>${"Humidity: " + response.list[0].main.humidity + "%"}</h3>`)
     var windSpeed = $(`<h3>${"Wind Speed: " + response.list[0].wind.speed + " MPH"}</h3>`)
@@ -138,11 +138,12 @@ function renderSearchHistory(){
   pastSearch.attr("data-name", cities[i]);
   pastSearch.text(cities[i]);
   $("#search-view").prepend(pastSearch)
-  displayWeatherInfo()
 
   } }
   //if previous searched city is clicked, pulls up data on that city
-$(document).on("click", ".searchedCity", displayWeatherInfo);
+$(document).on("click", ".searchedCity", function(){
+  displayWeatherInfo($(this).attr("data-name"));
+} )
 
 
 

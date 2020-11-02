@@ -25,14 +25,14 @@
     <!--top bar header-->
     <div class="container-fluid ">
         <Header> 
-            <h1>How's The Weather?</h1>
+            <h1>How's The Weather?  <i class="fas fa-cloud-sun-rain"></i></h1>
         </Header>
     </div>
     <div class="container-fluid">
         <!--Side bar for Searching and holding previous searches-->
         <div class="row">
-          <div class="col-2 card">
-            <h2>Search for a City:</h2>
+          <div class="col-3 card">
+            <h2>Search City:</h2>
             <form class="form-inline">
                 <input id="search-city" class="form-control mr-sm-2" type="search" placeholder="City" aria-label="Search">
                 <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search-location"></i></button>
@@ -42,15 +42,15 @@
                 </ul>
               </div>
           </div>
-          <div class="col-10 card">
+          <div class="col-9 card">
               <!--main weather section. Will pop up with weather information on city searched-->
             <main id="mainWeatherInfo">
             
             </main>
         <!--box for 5 day forecast for current city selected-->
-            <div class="row">
+            <div class="row fivedayrow">
                 <div class="col card">
-                <h2>Five Day Forecast</h2>
+                <h2>5 Day Forecast: </h2>
                 <div class="row">
                 <div class="col-2">
                     <div class="card">
