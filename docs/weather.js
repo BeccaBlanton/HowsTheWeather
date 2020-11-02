@@ -35,9 +35,8 @@ function displayWeatherInfo(){
   $(".dayFourCard").empty();
   $(".dayFiveCard").empty();
 
-    var city = $(this).attr("data-name")
-  console.log(city)
-  
+   // var city = $(this).attr("data-name")
+  var city="sacramento"
   var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=5feeeec9e5f2ebf79547fc8775da3160";
   $.ajax({
     url: queryURL,
@@ -50,7 +49,34 @@ function displayWeatherInfo(){
     var temperature = $(`<h3>${"Temperature: " + tempF + "°F"}</h3>`)
     var humidity = $(`<h3>${"Humidity: " + response.list[0].main.humidity + "%"}</h3>`)
     var windSpeed = $(`<h3>${"Wind Speed: " + response.list[0].wind.speed + " MPH"}</h3>`)
-    //var uvIndex = $(`<h3>${"UV Index: " + response.list.speed}</h3>`)
+    var lat = response.city.coord.lat
+    var lon = response.city.coord.lon
+    console.log(lat)
+    console.log(lon)
+    var queryURL2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon +"&exclude=alerts&appid=5feeeec9e5f2ebf79547fc8775da3160";
+    $.ajax({
+    url: queryURL2,
+      method: "GET"
+      }).then(function(response) {
+      console.log(response)
+      var uvIndex = response.current.uvi
+      var uvDiv = $(`<h3>`)
+      $('#mainWeatherInfo').append(uvDiv)
+      uvDiv.text("UV Index: "+ uvIndex)
+      console.log(uvIndex)
+      if(uvIndex > 5){
+        $(uvDiv).addClass('severe')
+      } else if(uvIndex < 5 && uvIndex > 2){
+        $(uvDiv).addClass('moderate')
+      }else{
+        $(uvDiv).addClass('favorable')
+      }
+      
+        })
+
+
+
+
     $('#mainWeatherInfo').append(cityHeader, temperature, humidity, windSpeed)
     console.log(queryURL)
     console.log(response)
@@ -84,6 +110,7 @@ function displayWeatherInfo(){
     var dayFiveIcon = $(`<li> <img src=${"http://openweathermap.org/img/w/"+ response.list[39].weather[0].icon +".png"}></li>`)
     var dayFiveHumidity= $(`<li>${"Humidity: " + response.list[39].main.humidity + "%"}</li>`)
     $('.dayFiveCard').append(dayFive, dayFiveTemp,dayFiveIcon, dayFiveHumidity)
+    
 })
 }
 //when searches, pulls that input from search and generates info on the city
@@ -213,8 +240,11 @@ function renderSearchHistory(){
 })
 }*/
 
+
+
 //if previous searched city is clicked, pulls up data on that city
 $(document).on("click", ".searchedCity", displayWeatherInfo);
 
 renderSearchHistory();
+displayWeatherInfo();
 

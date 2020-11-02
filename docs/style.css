@@ -1,3 +1,7 @@
+body {
+    background-color:lightgray;
+}
+
 header{
     background-color: teal;
     color: whitesmoke;
@@ -13,7 +17,32 @@ header{
     float: right;
     margin-left: 25px;
 }
+.card {
+    background-color: lightgray;
+}
 .card-body {
     background-color: turquoise;
     border-radius: 15%;
+}
+
+.favorable {
+    display: table;
+    padding:5px;font-size:20px;
+    background-color: green;
+    border-radius: 10%;
+}
+
+.moderate {
+    display: table;
+    padding:5px;font-size:20px;
+    background-color: yellow;
+    border-radius: 10%;
+    text-align: left;
+}
+
+.severe {
+    display: table;
+    padding:5px;font-size:20px;
+    background-color: tomato;
+    border-radius: 10%;
 }
