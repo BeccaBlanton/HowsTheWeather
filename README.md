@@ -20,10 +20,18 @@
 
 * When Returning to the site, you are presented with the last searched city forecast via your local Storage.
 
+## Technologies
+
+* HTML
+* CSS
+* Bootstrap framework
+* JavaScript
+* jQuery
+* Moment.js
+
 ## Resources
 
-* Bootstrap for formatting page
-* Moment.js for pulling date for current day and 5 day forecast cards.
+* OpenWeather API to pull weather information.
 * Unsplash for public use background image
 
 ## Website Example and Link
@@ -31,3 +39,11 @@
 [Go to Live HowsTheWeather Page](https://beccablanton.github.io/HowsTheWeather/)
 
 ![Website snapshot](docs/howstheweatherwebsite.png)
+
+## License
+
+MIT License. see License file for details.
+
+### Author
+
+Sole Author: Contact [Becca Blanton](https://beccablanton.github.io/)
